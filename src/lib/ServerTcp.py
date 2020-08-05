@@ -24,8 +24,8 @@ class ServerTcp:
 
     def start(self):
         try:
-            # self.context = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             self.context = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.context.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             self.context.bind((self.address, self.port))
             self.context.listen(5)
             
