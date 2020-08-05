@@ -1,4 +1,4 @@
-from socket import socket, SOCK_DGRAM, SOCK_STREAM, AF_INET, timeout
+from socket import socket, SOCK_DGRAM, SOCK_STREAM, AF_INET, SO_REUSEADDR, SOL_SOCKET, timeout
 from threading import Thread
  
 isConnected = False
@@ -26,6 +26,7 @@ server = (host, port)
 # Criamos o socket
 # context = socket(AF_INET, SOCK_DGRAM)
 context = socket(AF_INET, SOCK_STREAM)
+context.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 context.connect(server)
 isConnected = True
 try:

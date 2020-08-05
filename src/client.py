@@ -1,4 +1,4 @@
-from socket import socket, SOCK_DGRAM, SOCK_STREAM, AF_INET, timeout
+from socket import socket, SOCK_DGRAM, SOCK_STREAM, AF_INET, SO_REUSEADDR, SOL_SOCKET, timeout
 from threading import Thread
  
 isConnected = False
